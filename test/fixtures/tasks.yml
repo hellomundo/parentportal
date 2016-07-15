@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hours: 9.99
+  notes: MyText
+
+two:
+  hours: 9.99
+  notes: MyText
