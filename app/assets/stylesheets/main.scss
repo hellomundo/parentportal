@@ -1,0 +1,75 @@
+@import "susy";
+@import "breakpoint";
+
+@import 'https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700';
+
+// for media queries
+$small: '32em';
+$medium: '45em';
+$large: '60em';
+
+.section {
+  margin-bottom: 4em;
+}
+
+.container {
+  @include container(80em);
+}
+
+// top nav
+body {margin:0;}
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+
+  li {
+    float: left;
+
+    a {
+      display: inline-block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 17px;
+
+      &:hover {
+        background-color: #111;
+      }
+    }
+  }
+
+  li.icon {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}

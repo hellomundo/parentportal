@@ -32,6 +32,8 @@ gem 'slim', '~> 3.0', '>= 3.0.7'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'devise', '~> 4.2'
 gem 'susy', '~> 2.2', '>= 2.2.12'
+gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
+gem 'breakpoint', '~> 2.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

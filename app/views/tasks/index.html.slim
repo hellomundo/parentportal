@@ -1,8 +1,10 @@
-h1 Tasks
-- @tasks.each do |task|
-  h4
-    = task.hours
-    |  hours of
-    = link_to task.notes, task
+.section
+  .container
+    h1 Tasks
+    - @tasks.each do |task|
+      h4
+        = task.hours
+        |  hours of
+        = link_to task.notes, task
 
-= link_to "New Task", new_task_path
+    = link_to "New Task", new_task_path
