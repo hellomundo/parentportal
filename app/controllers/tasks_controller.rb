@@ -1,8 +1,10 @@
 class TasksController < ApplicationController
 
   before_action :find_task, only: [:show, :edit, :update, :destroy]
+
   def index
-    @tasks = Task.all.order("created_at DESC")
+    @tasks = Task.where(user_id: current_user).order("created_at DESC")
+    # @tasks = Task.where(family_id: current_user.family_id).order("created_at DESC")
   end
 
   def show

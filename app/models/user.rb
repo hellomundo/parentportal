@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tasks
+  belongs_to :family
+  has_many :relationships
+  has_many :students, through: :relationsips
 end
