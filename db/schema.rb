@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719005227) do
+ActiveRecord::Schema.define(version: 20160719032158) do
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -39,12 +39,19 @@ ActiveRecord::Schema.define(version: 20160719005227) do
     t.index ["family_id"], name: "index_students_on_family_id"
   end
 
+  create_table "task_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.decimal  "hours"
     t.text     "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "user_id"
+    t.integer  "task_type_id"
   end
 
   create_table "users", force: :cascade do |t|

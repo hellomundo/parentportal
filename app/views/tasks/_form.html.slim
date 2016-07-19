@@ -1,4 +1,5 @@
 = simple_form_for @task do |f|
+  = f.collection_select :task_type_id, TaskType.all, :id, :name, {prompt: "What did you do?"}
   = f.input :hours
   = f.input :notes
   = f.button :submit
