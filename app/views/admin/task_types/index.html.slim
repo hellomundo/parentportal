@@ -1,0 +1,10 @@
+.section
+  .container
+    h1 Task Types
+    - @task_types.each do |task_type|
+      h4
+        = task_type.name
+      p
+        = task_type.description
+
+    = link_to "New Task Type", new_admin_task_type_path

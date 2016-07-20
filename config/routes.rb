@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  resources :families
-  devise_for :users
   get 'welcome/index'
+
+  namespace :admin do
+    resources :task_types
+  end
+
+  resources :families
+
+  devise_for :users
 
   root 'welcome#index'
 

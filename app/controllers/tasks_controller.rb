@@ -48,7 +48,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:hours, :notes)
+    params.require(:task).permit(:hours, :notes, :task_type_id)
   end
 
 end
