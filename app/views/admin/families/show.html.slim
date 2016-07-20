@@ -1,0 +1,13 @@
+.section
+  .container
+    h1
+      ' The
+      = @family.name
+      '  Family
+    h4 Family Members
+    p List parent/guardians here
+    p List students here
+
+    = link_to "Edit", edit_admin_family_path(@family)
+    ' 
+    = link_to "Delete", admin_family_path(@family), method: :delete, data: {confirm: 'Are you sure?'}

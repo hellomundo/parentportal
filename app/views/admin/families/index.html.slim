@@ -1,0 +1,8 @@
+.section
+  .container
+    h1 Orchard Families
+    - @families.each do |family|
+      h4
+        = link_to family.name, admin_family_path(family)
+
+    = link_to "New Family", new_admin_family_path

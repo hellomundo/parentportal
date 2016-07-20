@@ -1,4 +1,4 @@
-class Admin::TaskTypesController < ApplicationController
+class Admin::TaskTypesController < Admin::BaseController
   before_action :find_task_type, only: [:show, :edit, :update, :destroy]
 
   def index
