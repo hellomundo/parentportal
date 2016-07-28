@@ -1,75 +1,205 @@
 @import "susy";
 @import "breakpoint";
 
-@import 'https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700';
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
 
 // for media queries
 $small: '32em';
 $medium: '45em';
 $large: '60em';
 
+$dark-blue: #114b5b;
+$med-blue: #26687c;
+$light-blue: #75b8bb;
+$dark-gray: #808080;
+$med-gray: #b3b3b3;
+$light-gray: #f2f2f2;
+
+$sans-serif: 'Source Sans Pro', sans-serif;
+$serif: 'Roboto Slab', serif;
+
+// FORM RESET
+// Font
+$fh-font-family: $sans-serif;
+$fh-font-size: 16px;
+$fh-font-color: $dark-gray;
+
+// Borders
+$fh-border-radius: 0px;
+$fh-border-width: 1px;
+$fh-border-style: solid;
+$fh-border-color: $light-gray;
+
+// Inputs, Textareas, Select, Option
+$fh-input-height: 40px;
+$fh-input-width: 100%;
+$fh-input-max-width: 400px;
+$fh-input-bg-color: $light-gray;
+$fh-focus-bg-color: #fff;
+$fh-focus-border-color: $light-blue;
+$fh-focus-font-color: $fh-font-color;
+
+// Select Vendor Styling
+$fh-allow-vendor-styling: true;
+
+// Fieldset & Legend Styling
+$fh-fieldset-bare: false;
+
+// Buttons & Input Submits
+$fh-button-height: 40px;
+$fh-button-width: 100%;
+$fh-button-max-width: 200px;
+$fh-button-font-color: #fff;
+$fh-button-bg-color: $light-blue;
+$fh-button-hover-bg-color: $dark-blue;
+$fh-button-hover-font-color: #fff;
+
+// Layout
+$fh-centered: false;
+$fh-display: block;
+
+// susy settings
+$susy: (
+  columns: 12,
+  gutters: .5
+);
+
+// TYPOGRAPHY
+html {
+  font-family: $sans-serif;
+  font-weight: 300;
+  color: $dark-gray;
+}
+
+h1, h2, h3, h4, h5 {
+   font-family: $serif;
+   font-weight: 400;
+   color: $med-blue;
+   /* Your other headings CSS */
+}
 .section {
-  margin-bottom: 4em;
+  margin-top: 3em;
 }
 
 .container {
-  @include container(80em);
+  @include container(50em);
+}
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 // top nav
 body {margin:0;}
-ul.topnav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
 
-  li {
+nav {
+  background-color: $light-blue;
+  position: relative;
+  @extend .clearfix;
+
+  .logo {
     float: left;
+    background-color: $dark-blue;
 
     a {
       display: inline-block;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      transition: 0.3s;
-      font-size: 17px;
-
-      &:hover {
-        background-color: #111;
-      }
     }
   }
 
-  li.icon {
-    display: none;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @extend .clearfix;
+
+    li {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      float: left;
+
+      a {
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        padding: 2em;
+
+        &:visited, &:active {
+          color: white;
+        }
+      }
+
+    }
   }
 }
 
+// tables
 
-@media screen and (max-width:680px) {
-  ul.topnav li:not(:first-child) {display: none;}
-  ul.topnav li.icon {
-    float: right;
-    display: inline-block;
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr {
+  padding: .5em;
+  border-bottom: 1px solid $light-gray;
+
+}
+
+thead {
+  tr {
+    border-bottom: 1px solid $dark-gray;
+  }
+}
+tbody {
+  tr {
+    &:hover {
+      background-color: $light-gray;
+    }
   }
 }
 
-@media screen and (max-width:680px) {
-  ul.topnav.responsive {position: relative;}
-  ul.topnav.responsive li.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
+th {
+  padding: .5em;
+  text-align: left;
+}
+
+td {
+  padding: 1em .5em;
+}
+
+.table-control {
+  padding-left: .5em;
+  @extend .clearfix;
+  border-top: 1px solid $med-gray;
+  padding-top: 1em;
+}
+
+// box layout
+
+.task-box {
+
+  border-top: 1px solid $med-gray;
+  @include gallery(4);
+  margin-bottom: 2em;
+
+  a {
+    font-size: .8em;
+    font-weight: 400;
+    text-decoration: none;
+    color: $dark-gray;
   }
-  ul.topnav.responsive li {
-    float: none;
-    display: inline;
-  }
-  ul.topnav.responsive li a {
-    display: block;
-    text-align: left;
-  }
+
+}
+
+.box-control {
+  @extend .clearfix;
+  border-top: 1px solid $med-gray;
+  padding-top: 1em;
 }

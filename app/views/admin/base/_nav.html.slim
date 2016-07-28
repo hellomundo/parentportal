@@ -1,17 +1,19 @@
-ul.topnav
-  li
-    = link_to "Home", root_path
-  li
-    = link_to "My Hours", tasks_path
-  li
-    = link_to "Families", admin_families_path
-  li
-    = link_to "Task Categories", admin_task_types_path
-  li
-    - if user_signed_in?
-      = link_to "Logout", destroy_user_session_path, method: :delete
-    - else
-      = link_to "Login", new_user_session_path
-
-  li.icon
-    <a href="javascript:void(0);" style="font-size:15px;" onclick="toggleNav()">☰</a>
+nav
+  div.logo
+    = link_to image_tag("orchard_logo.png"), root_path
+  ul
+    li
+      = link_to "Dashboard", root_path
+    li
+      = link_to "Families", admin_families_path
+    li
+      = link_to "Task Hours", tasks_path
+    li
+      = link_to "Task Categories", admin_task_types_path
+    li
+      - if user_signed_in?
+        = link_to "Logout", destroy_user_session_path, method: :delete
+      - else
+        = link_to "Login", new_user_session_path
+    li.toggle
+        <a href="javascript:void(0);" style="font-size:15px;" onclick="toggleNav()">☰</a>

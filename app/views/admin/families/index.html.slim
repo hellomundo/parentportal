@@ -1,8 +1,23 @@
 .section
   .container
     h1 Orchard Families
-    - @families.each do |family|
-      h4
-        = link_to family.name, admin_family_path(family)
+  .container
+    table
+      thead
+        tr
+          th Family
+          th Parents
+          th Hours
+          th
+      tbody
+        - @families.each do |family|
+          tr
+            td
+              = link_to family.name, admin_family_path(family)
+            td Parent Names
+            td 101.5
+            td EDIT
 
-    = link_to "New Family", new_admin_family_path
+  .container
+    .table-control
+      = link_to "New Family", new_admin_family_path

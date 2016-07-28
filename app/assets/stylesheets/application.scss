@@ -11,5 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  *= require normalize-rails
- *= require_tree .
+ * require main
+ * require formhack
+ * require_tree .
  */
+
+@import 'main';
+@import 'formhack';
