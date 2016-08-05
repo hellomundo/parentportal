@@ -3,10 +3,6 @@ nav
     = link_to image_tag("orchard_logo.png"), root_path
   ul
     li
-      = link_to "Home", root_path
-    li
-      = link_to "Home", root_path
-    li
       = link_to "My Hours", tasks_path
     li
       - if user_signed_in?
