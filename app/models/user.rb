@@ -8,4 +8,8 @@ class User < ApplicationRecord
   belongs_to :family
   has_many :relationships
   has_many :students, through: :relationsips
+
+  def total_hours
+    self.tasks.sum(:hours)
+  end
 end

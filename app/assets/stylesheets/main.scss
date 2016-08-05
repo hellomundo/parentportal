@@ -94,6 +94,21 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+// link-buttons
+.action-button {
+  display: inline-block;
+  text-decoration: none;
+  background-color: $med-blue;
+  color: white;
+  margin: 3em 0;
+  padding: 1em 2em;
+  transition-duration: 0.2s;
+
+  &:hover {
+    background-color: $dark-blue;
+  }
+}
+
 // top nav
 body {margin:0;}
 
@@ -164,10 +179,18 @@ tbody {
     }
   }
 }
+tfoot {
+  tr {
+    td {
+      font-weight: 700;
+    }
+  }
+}
 
 th {
   padding: .5em;
   text-align: left;
+  font-weight: 700;
 }
 
 td {
@@ -180,6 +203,23 @@ td {
   border-top: 1px solid $med-gray;
   padding-top: 1em;
 }
+
+// simple bar charts
+.bar-chart {
+  background-color: $light-gray;
+  width: 100%;
+  position: relative;
+  height: 2em;
+
+  .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2em;
+    background-color: $light-blue;
+  }
+}
+
 
 // box layout
 

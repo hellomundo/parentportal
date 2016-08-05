@@ -1,10 +1,41 @@
 .section
   .container
-    h1 Tasks
-    - @tasks.each do |task|
-      h4
-        = task.hours
-        |  hours of
-        = link_to task.notes, task
+    h1 My Hours
+    h2 You've done #{number_with_precision(@total_task_hours, precision: 2, strip_insignificant_zeros: true)} of #{@required_hours} hours this year.
 
-    = link_to "New Task", new_task_path
+  .container
+    .bar-chart
+      .bar style="width:#{@percent_done}%"
+
+  .container
+    = link_to "Add Hours", new_task_path, { class: "action-button" }
+
+  .container
+    table
+      thead
+        tr
+          th Task
+          th Done By
+          th Notes
+          th Submitted on
+          th Hours
+          th
+      tbody
+        - @tasks.each do |task|
+          tr
+            td = task.task_type.name
+            td = task.user.email
+            td = task.notes
+            td = task.created_at.to_s(:task_date)
+            td = task.hours
+            td = link_to "EDIT", edit_task_path(task)
+      tfoot
+        tr
+          td Total
+          td colspan="3"
+          td = @total_task_hours
+          td
+
+  .container
+    .table-control
+      = link_to "New Task", new_task_path
