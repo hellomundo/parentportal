@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :user
   belongs_to :task_type
+
+  validates :hours, numericality: true
 end
