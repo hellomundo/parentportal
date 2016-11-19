@@ -1,0 +1,27 @@
+.section
+  .container
+    h1 ParentPortal Users
+  .container
+    table
+      thead
+        tr
+          th Name
+          th Family
+          th Email
+          th Phone
+          th
+      tbody
+        - @users.each do |user|
+          tr
+            td
+              = link_to user.full_name, admin_user_path(user)
+            td Family
+            td
+              = user.email
+            td 555 555 5555
+            td
+              = link_to "EDIT", edit_admin_user_path(user)
+
+  .container
+    .table-control
+      = link_to "New User", new_admin_user_path

@@ -12,4 +12,14 @@ class User < ApplicationRecord
   def total_hours
     self.tasks.sum(:hours)
   end
+
+  def full_name
+    name = ""
+    name.concat(first_name) if !first_name.nil?
+    if !last_name.nil?
+      name.concat(" ")
+      name.concat(last_name)
+    end
+    name
+  end
 end
