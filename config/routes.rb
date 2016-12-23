@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
   get 'welcome/index'
-  root 'welcome#index'
+
+  root to: 'tasks#index'
 
   devise_for :users
 
   namespace :admin do
-    get '', to: 'dashboard#index', as: '/'
+    # get '', to: 'dashboard#index', as: '/'
+
+    root to: 'dashboard#index', as: "/"
 
     resources :task_types
     resources :families
