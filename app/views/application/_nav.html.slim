@@ -1,13 +1,8 @@
 nav
-  div.logo
-    = link_to image_tag("orchard_logo.png"), root_path
-  ul
-    li
-      = link_to "My Hours", tasks_path
-    li
-      - if user_signed_in?
-        = link_to "Logout", destroy_user_session_path, method: :delete
-      - else
-        = link_to "Login", new_user_session_path
-    li.toggle
-        <a href="javascript:void(0);" style="font-size:15px;" onclick="toggleNav()">☰</a>
+  div.navigation
+    = link_to "Orchard School Parent Hours", root_path, class: "home"
+    = link_to "My Hours", tasks_path
+    - if user_signed_in?
+      = link_to "Logout", destroy_user_session_path, method: :delete
+    - else
+      = link_to "Login", new_user_session_path

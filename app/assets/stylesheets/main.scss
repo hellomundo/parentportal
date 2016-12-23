@@ -113,8 +113,9 @@ h1, h2, h3, h4, h5 {
 body {margin:0;}
 
 nav {
-  background-color: $light-blue;
+  background-color: #fff;
   position: relative;
+  padding: 2em;
   @extend .clearfix;
 
   .logo {
@@ -126,31 +127,22 @@ nav {
     }
   }
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    @extend .clearfix;
+  .home {
+    font-family: $serif;
+    font-weight: 700;
+  }
 
-    li {
-      display: inline;
-      margin: 0;
-      padding: 0;
-      float: left;
+  a {
+    margin-right: 1em;
+    text-decoration: none;
+    color: $dark-gray;
+    // text-align: center;
+    padding: 2em;
 
-      a {
-        display: inline-block;
-        text-decoration: none;
-        color: white;
-        text-align: center;
-        padding: 2em;
-
-        &:visited, &:active {
-          color: white;
-        }
-      }
-
+    &:visited, &:active {
+      color: $dark-gray;
     }
+
   }
 }
 
