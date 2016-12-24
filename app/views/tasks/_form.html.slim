@@ -1,5 +1,12 @@
-= simple_form_for @task do |f|
-  = f.collection_select :task_type_id, TaskType.all, :id, :name, {prompt: "What did you do?"}
-  = f.input :hours
-  = f.input :notes
-  = f.button :submit
+.container
+  = simple_form_for @task do |f|
+    .form-left-wide
+      = label_tag "What did you do?"
+      = f.collection_select :task_type_id, TaskType.all, :id, :name, {prompt: "Select a task"}
+      // = f.input :task_type, collection: TaskType.all, label_method: :name, value_method: :id, label: "What did you do?", include_blank: false
+    .form-right-narrow
+      = f.input :hours
+    .form-full
+      = f.input :notes, label: "Notes (optional)"
+    .form-full
+      = f.button :submit, "Add hours"

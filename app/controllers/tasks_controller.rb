@@ -4,9 +4,11 @@ class TasksController < ApplicationController
 
   def index
     # TODO: Move to an admin setting
+    @task = current_user.tasks.build
     @required_hours = 45
     @total_task_hours = current_user.total_hours
     @percent_done = @total_task_hours / @required_hours * 100
+    @percent_over = (@total_task_hours - @required_hours) / @required_hours * 100
     @tasks = Task.where(user_id: current_user).order("created_at DESC").includes(:user, :task_type)
     # @tasks = Task.where(family_id: current_user.family_id).order("created_at DESC")
   end
@@ -22,7 +24,8 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(task_params)
 
     if @task.save
-      redirect_to @task
+      #redirect_to @task
+      redirect_back(fallback_location: root_path)
     else
       render 'new'
     end

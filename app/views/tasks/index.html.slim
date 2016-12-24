@@ -1,15 +1,30 @@
 .section
   .container
-    h1 My Hours
-    h2 You've done #{number_with_precision(@total_task_hours, precision: 2, strip_insignificant_zeros: true)} of #{@required_hours} hours this year.
+    h1 Hi Ed
+    h2 Thanks for keeping track of your hours!
 
+.section
   .container
+    = render 'form'
+
+.section
+  .container
+    .bar-header Your contributions this year.
+
+    .bar-stat
+      h3 #{number_with_precision(@total_task_hours, precision: 2, strip_insignificant_zeros: true)} / #{@required_hours} hrs
+
+    .bar-percent
+      h3
+        = "#{@percent_done.round}%"
+
     .bar-chart
-      .bar style="width:#{@percent_done}%"
+      - if @percent_done <= 100
+        .bar style="width:#{@percent_done}%"
+      - else
+        .bar-over style="width:#{@percent_over}%"
 
-  .container
-    = link_to "Add Hours", new_task_path, { class: "action-button" }
-
+.section
   .container
     table
       thead
@@ -35,7 +50,3 @@
           td colspan="3"
           td = @total_task_hours
           td
-
-  .container
-    .table-control
-      = link_to "New Task", new_task_path

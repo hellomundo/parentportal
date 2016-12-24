@@ -22,7 +22,7 @@ $serif: 'Roboto Slab', serif;
 // FORM RESET
 // Font
 $fh-font-family: $sans-serif;
-$fh-font-size: 16px;
+$fh-font-size: 30px;
 $fh-font-color: $dark-gray;
 
 // Borders
@@ -32,9 +32,9 @@ $fh-border-style: solid;
 $fh-border-color: $light-gray;
 
 // Inputs, Textareas, Select, Option
-$fh-input-height: 40px;
+$fh-input-height: 50px;
 $fh-input-width: 100%;
-$fh-input-max-width: 400px;
+$fh-input-max-width: 100%;
 $fh-input-bg-color: $light-gray;
 $fh-focus-bg-color: #fff;
 $fh-focus-border-color: $light-blue;
@@ -47,7 +47,7 @@ $fh-allow-vendor-styling: true;
 $fh-fieldset-bare: false;
 
 // Buttons & Input Submits
-$fh-button-height: 40px;
+$fh-button-height: 60px;
 $fh-button-width: 100%;
 $fh-button-max-width: 200px;
 $fh-button-font-color: #fff;
@@ -58,6 +58,11 @@ $fh-button-hover-font-color: #fff;
 // Layout
 $fh-centered: false;
 $fh-display: block;
+
+input[type="submit"] {
+  font-size: 20px;
+}
+
 
 // susy settings
 $susy: (
@@ -196,10 +201,30 @@ td {
   padding-top: 1em;
 }
 
+// forms
+.form-left { @include span(6);}
+.form-left-wide { @include span(9);}
+.form-left-narrow { @include span(3);}
+
+.form-right { @include span(last 6);}
+.form-right-wide { @include span(last 9);}
+.form-right-narrow { @include span(last 3);}
+
+.form-full {
+  @include span(12);
+}
+
 // simple bar charts
-.bar-chart {
-  background-color: $light-gray;
+.bar-header {
   width: 100%;
+  border-bottom: 1px solid $dark-gray;
+  padding: 0.5em;
+}
+
+.bar-chart {
+  @include span(12);
+  background-color: $light-gray;
+  //width: 100%;
   position: relative;
   height: 2em;
 
@@ -210,6 +235,28 @@ td {
     height: 2em;
     background-color: $light-blue;
   }
+
+  .bar-over {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2em;
+    background-color: $light-blue;
+  }
+}
+
+.bar-stat {
+  @include span(6);
+  text-align: left;
+
+  h3 {
+    padding-left: .5em;
+  }
+}
+
+.bar-percent {
+  @include span(last 6);
+  text-align: right;
 }
 
 
