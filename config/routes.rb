@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :task_types
     resources :families
     resources :users
+
   end
 
   resources :tasks

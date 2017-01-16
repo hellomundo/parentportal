@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031045427) do
+ActiveRecord::Schema.define(version: 20161224232153) do
 
   create_table "admin_task_types", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20161031045427) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
+    t.boolean  "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["family_id"], name: "index_users_on_family_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

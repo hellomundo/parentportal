@@ -27,7 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  #config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
@@ -54,4 +54,20 @@ Rails.application.configure do
 
   # For devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # for dev
+  config.action_mailer.delivery_method = :sendmail
+  # Defaults to:
+  # config.action_mailer.sendmail_settings = {
+  #   location: '/usr/sbin/sendmail',
+  #   arguments: '-i'
+  # }
+  #config.action_mailer.smtp_settings = {
+  #:address => "localhost",
+  #:port => 25,
+  #:domain => "oqqo.co",
+  #}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'no-reply@oqqo.co'}
 end

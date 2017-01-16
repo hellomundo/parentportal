@@ -18,6 +18,7 @@ class Admin::UsersController < Admin::BaseController
     if @user.save
       redirect_to admin_users_path
     else
+      logger.debug @user.errors.full_messages
       render 'new'
     end
   end
@@ -46,6 +47,6 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :phone)
+    params.require(:user).permit(:first_name, :last_name, :email, :phone, :family_id, :is_admin)
   end
 end

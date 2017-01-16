@@ -8,7 +8,12 @@ class User < ApplicationRecord
   belongs_to :family
   has_many :relationships
   has_many :students, through: :relationsips
+  has_one :invitation
 
+  def password_required?
+     new_record? ? false : super
+  end
+  
   def total_hours
     self.tasks.sum(:hours)
   end
@@ -22,4 +27,5 @@ class User < ApplicationRecord
     end
     name
   end
+
 end
