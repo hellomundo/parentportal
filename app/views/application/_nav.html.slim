@@ -2,6 +2,9 @@ nav
   div.navigation
     = link_to "Orchard School Parent Hours", root_path, class: "home"
     = link_to "My Hours", tasks_path
+    - if current_user.is_admin?
+      = link_to "Admin", admin_path
+
     - if user_signed_in?
       = link_to "Logout", destroy_user_session_path, method: :delete
     - else
