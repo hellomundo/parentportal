@@ -73,7 +73,7 @@ Rails.application.configure do
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'YOUR_APPS_DOMAIN', #eg: 'yourappname.herokuapp.com'
+    :domain         => 'sandboxa7f36c2c41944f8e90e33c0be6f2e961.mailgun.org', #eg: 'yourappname.herokuapp.com'
     :authentication => :plain,
   }
 
