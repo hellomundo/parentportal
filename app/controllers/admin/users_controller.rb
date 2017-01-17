@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :invite]
 
   def index
     @users = User.all
@@ -39,6 +39,13 @@ class Admin::UsersController < Admin::BaseController
 
     redirect_to admin_users_path
   end
+
+  def invite
+    @user.invite!
+
+    redirect_to admin_users_path
+  end
+
 
   private
 
