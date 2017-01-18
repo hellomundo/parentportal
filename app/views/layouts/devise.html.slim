@@ -8,7 +8,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    = render 'nav'
+    = render 'application/nav'
 
     - if flash[:notice]
       .flash.notice
@@ -22,4 +22,6 @@ html
           p
             = alert
 
-    = yield
+    section
+      .container
+        = yield

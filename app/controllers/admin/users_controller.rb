@@ -42,6 +42,7 @@ class Admin::UsersController < Admin::BaseController
 
   def invite
     @user.invite!
+    flash[:notice] = "Okay. Just invited #{@user.first_name}"
 
     redirect_to admin_users_path
   end
