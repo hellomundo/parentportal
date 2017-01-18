@@ -22,6 +22,10 @@
             td
               = number_to_phone(user.phone)
             td
+              - if user.invitation_accepted?
+                . Y
+              - else
+                . N
               - if user.invited_to_sign_up?
                 = link_to "RE-INVITE", invite_admin_user_path(user)
               - else
