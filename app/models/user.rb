@@ -13,9 +13,13 @@ class User < ApplicationRecord
   def password_required?
      new_record? ? false : super
   end
-  
+
   def total_hours
     self.tasks.sum(:hours)
+  end
+
+  def total_family_hours
+    Task.where(family_id: self.family_id).sum(:hours)
   end
 
   def full_name

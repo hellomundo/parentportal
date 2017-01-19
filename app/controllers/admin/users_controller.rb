@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :invite]
 
   def index
-    @users = User.all
+    @users = User.includes(:family).all
   end
 
   def show

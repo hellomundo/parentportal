@@ -6,11 +6,11 @@ class TasksController < ApplicationController
     # TODO: Move to an admin setting
     @task = current_user.tasks.build
     @required_hours = 45
-    @total_task_hours = current_user.total_hours
+    @total_task_hours = current_user.total_family_hours
     @percent_done = @total_task_hours / @required_hours * 100
     @percent_over = (@total_task_hours - @required_hours) / @required_hours * 100
-    @tasks = Task.where(user_id: current_user).order("created_at DESC").includes(:user, :task_type)
-    # @tasks = Task.where(family_id: current_user.family_id).order("created_at DESC")
+    #@tasks = Task.where(user_id: current_user).order("created_at DESC").includes(user: :family, :task_type)
+    @tasks = Task.includes(:user, :task_type).where(family_id: current_user.family_id).order("created_at DESC")
   end
 
   def show
@@ -22,6 +22,7 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.build(task_params)
+    @task.family = current_user.family
 
     if @task.save
       #redirect_to @task

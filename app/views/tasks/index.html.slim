@@ -9,7 +9,7 @@
 
 .section
   .container
-    .bar-header Your contributions this year.
+    .bar-header Your family's contributions this year.
 
     .bar-stat
       h3 #{number_with_precision(@total_task_hours, precision: 2, strip_insignificant_zeros: true)} / #{@required_hours} hrs
@@ -39,14 +39,14 @@
         - @tasks.each do |task|
           tr
             td = task.task_type.name
-            td = task.user.email
+            td = task.user.first_name
             td = task.notes
             td = task.created_at.to_s(:task_date)
-            td = task.hours
+            td.number = task.hours
             td = link_to "EDIT", edit_task_path(task)
       tfoot
         tr
           td Total
           td colspan="3"
-          td = @total_task_hours
+          td.number = @total_task_hours
           td

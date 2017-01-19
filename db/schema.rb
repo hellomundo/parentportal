@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170118041926) do
+ActiveRecord::Schema.define(version: 20170119002829) do
 
   create_table "admin_task_types", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 20170118041926) do
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
     t.integer  "task_type_id"
+    t.integer  "family_id"
+    t.index ["family_id"], name: "index_tasks_on_family_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -16,7 +16,8 @@
           tr
             td
               = link_to user.full_name, admin_user_path(user)
-            td Family
+            td
+              = user.family.name
             td
               = user.email
             td

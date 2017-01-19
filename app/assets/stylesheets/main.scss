@@ -215,6 +215,10 @@ td {
   padding: 1em .5em;
 }
 
+.number {
+  text-align: right;
+}
+
 .table-control {
   padding-left: .5em;
   @extend .clearfix;
