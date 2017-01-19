@@ -1,5 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.action_controller.default_url_options = {:host => "localhost:3000"}
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -56,7 +57,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # for dev
-  # config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :sendmail
   # Defaults to:
   # config.action_mailer.sendmail_settings = {
   #   location: '/usr/sbin/sendmail',
@@ -67,15 +68,6 @@ Rails.application.configure do
   #:port => 25,
   #:domain => "oqqo.co",
   #}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'sandboxa7f36c2c41944f8e90e33c0be6f2e961.mailgun.org', #eg: 'yourappname.herokuapp.com'
-    :authentication => :plain,
-  }
 
 
   config.action_mailer.perform_deliveries = true
