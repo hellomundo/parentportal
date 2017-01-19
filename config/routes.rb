@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
     resources :task_types
     resources :families
+    resources :periods
     resources :users do
       member do
         get 'invite'

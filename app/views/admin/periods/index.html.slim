@@ -1,0 +1,25 @@
+.section
+  .container
+    h1 Academic Periods
+  .container
+    table
+      thead
+        tr
+          th Period
+          th From
+          th To
+          th
+      tbody
+        - if @periods.present?
+          - @periods.each do |period|
+            tr
+              td
+                = link_to period.name, admin_period_path(period)
+              td #{period.from_date}
+              td #{period.to_date}
+              td
+                = link_to "EDIT", edit_admin_period_path(period)
+
+  .container
+    .table-control
+      = link_to "New Period", new_admin_period_path
