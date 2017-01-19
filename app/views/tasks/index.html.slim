@@ -38,12 +38,13 @@
       tbody
         - @tasks.each do |task|
           tr
-            td = task.task_type.name
+            td = link_to task.task_type.name, edit_task_path(task)
             td = task.user.first_name
             td = task.notes
             td = task.created_at.to_s(:task_date)
             td.number = task.hours
-            td = link_to "EDIT", edit_task_path(task)
+            td = link_to(content_tag(:i, nil, class: 'fa fa-trash-o'), task, method: :delete, data: { confirm: 'Delete this task?' })
+
       tfoot
         tr
           td Total

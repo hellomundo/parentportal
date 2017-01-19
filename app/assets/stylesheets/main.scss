@@ -1,6 +1,7 @@
 @import "susy";
 @import "breakpoint";
 
+@import "font-awesome";
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
 
@@ -115,8 +116,23 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+// font awesome fonts
+.fa {
+  color: $dark-gray;
+}
+
+
 // top nav
 body {margin:0;}
+
+a {
+  text-decoration: none;
+  color: $light-blue;
+
+  &:visited, &:active {
+    color: $light-blue;
+  }
+}
 
 nav {
   background-color: #fff;
