@@ -1,13 +1,16 @@
 nav
   div.navigation
     = link_to "Orchard School Parent Hours", root_path, class: "home"
-    = link_to "Dashboard", admin_path
-    = link_to "Families", admin_families_path
-    = link_to "Users", admin_users_path
-    = link_to "Periods", admin_periods_path
-    = link_to "Task Categories", admin_task_types_path
+    label for="show-menu" class="show-menu" Menu
 
-    - if user_signed_in?
-      = link_to "Logout", destroy_user_session_path, method: :delete
-    - else
-      = link_to "Login", new_user_session_path
+    input type="checkbox" id="show-menu" role="button"
+    ul#menu
+      - if user_signed_in?
+        li = link_to "Dashboard", admin_path
+        li = link_to "Families", admin_families_path
+        li = link_to "Users", admin_users_path
+        li = link_to "Periods", admin_periods_path
+        li = link_to "Task Categories", admin_task_types_path
+        li = link_to "Logout", destroy_user_session_path, method: :delete
+      - else
+        li = link_to "Login", new_user_session_path

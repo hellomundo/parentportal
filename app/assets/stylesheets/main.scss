@@ -13,6 +13,7 @@ $large: '60em';
 $dark-blue: #114b5b;
 $med-blue: #26687c;
 $light-blue: #75b8bb;
+$highlight-blue: #dcf0f3;
 $dark-gray: #808080;
 $med-gray: #b3b3b3;
 $light-gray: #f2f2f2;
@@ -69,7 +70,10 @@ input[type="submit"] {
 // susy settings
 $susy: (
   columns: 12,
-  gutters: .5
+  gutters: 1/8,
+  container: 90%,
+  math: fluid,
+  global-box-sizing: border-box,
 );
 
 // TYPOGRAPHY
@@ -90,7 +94,28 @@ h1, h2, h3, h4, h5 {
 }
 
 .container {
-  @include container(50em);
+  @include container(90%);
+
+  @include breakpoint($small) {
+    width: 75%;
+    //margin: auto;
+  }
+
+  @include breakpoint($medium) {
+    width: 60%;
+    max-width: 50em;
+    //margin: auto;
+  }
+
+  @include breakpoint($large) {
+    //width: 50%;
+    width: 50em;
+    max-width: 50em;
+    //margin: auto;
+  }
+
+  margin: auto;
+
 }
 
 .clearfix {
@@ -137,40 +162,95 @@ a {
 nav {
   background-color: #fff;
   position: relative;
-  padding: 2em;
+  padding: 0;
   @extend .clearfix;
 
-  .logo {
-    float: left;
-    background-color: $dark-blue;
+  ul {
+    list-style-type:none;
+	  margin:0;
+	  padding:0;
+    display: none;
+	  position: static;
 
-    a {
-      display: inline-block;
+    @include breakpoint($medium) {
+      position: absolute;
+      display: block;
+      right: 0;
+      top: 1em;
+    }
+
+    li {
+      display:inline-block;
+    	float: left;
+    	margin-right: 1px;
+      width: 100%;
+      background-color: $light-gray;
+
+      @include breakpoint($medium) {
+        width: auto;
+        background-color: white;
+      }
+
+      a {
+        display:block;
+      	//min-width:140px;
+        padding: 0 1em;
+      	height: 50px;
+      	text-align: center;
+      	line-height: 50px;
+      	font-family: $sans-serif;;
+      	color: $dark-gray;
+      	//background: #2f3036;
+      	text-decoration: none;
+        width: 100%;
+        background-color: $light-gray;
+
+        @include breakpoint($medium) {
+          width: auto;
+          background-color: white;
+        }
+
+      }
+
+      &:hover {
+        a {
+          background-color: $highlight-blue;
+        }
+      }
     }
   }
 
   .home {
+    display: inline-block;
+    padding: 1em;
     font-family: $serif;
     font-weight: 700;
   }
 
-  a {
-    margin-right: 1em;
-    text-decoration: none;
-    color: $dark-gray;
-    // text-align: center;
-    padding: 2em;
+  .show-menu {
+  	font-family: #sans-serif;;
+  	text-decoration: none;
+  	color: $dark-gray;
+  	text-align: center;
+    margin: 0;
+  	padding: 1em;
+  	display: block;
+    float: right;
 
-    &:visited, &:active {
-      color: $dark-gray;
+    // show the menu control for mobile
+    @include breakpoint($medium) {
+      display: none;
     }
+  }
 
-    &.nav-right {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
+  /*Hide checkbox*/
+  input[type=checkbox]{
+      display: none;
+  }
 
+  /*Show menu when invisible checkbox is checked*/
+  input[type=checkbox]:checked ~ #menu{
+      display: block;
   }
 }
 
@@ -322,4 +402,12 @@ td {
   @extend .clearfix;
   border-top: 1px solid $med-gray;
   padding-top: 1em;
+}
+
+footer {
+  margin: 5em 1em 1em 1em;
+
+  p {
+    text-align: center;
+  }
 }
