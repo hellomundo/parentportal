@@ -3,7 +3,7 @@ class Admin::FamiliesController < Admin::BaseController
 
   def index
     #@families = Family.all
-    @families = Family.joins(:tasks).select('families.*, sum(tasks.hours) as total_hours').group(:family)
+    @families = Family.joins(:tasks).select('families.*, sum(tasks.hours) as total_hours').group(:family_id)
 
   end
 

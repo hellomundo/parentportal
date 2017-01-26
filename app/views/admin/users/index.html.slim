@@ -24,13 +24,12 @@
               = number_to_phone(user.phone)
             td
               - if user.invitation_accepted?
-                . Y
+                . ACCEPTED
               - else
-                . N
-              - if user.invited_to_sign_up?
-                = link_to "RE-INVITE", invite_admin_user_path(user)
-              - else
-                = link_to "INVITE", invite_admin_user_path(user)
+                - if user.invited_to_sign_up?
+                  = link_to "RE-INVITE", invite_admin_user_path(user)
+                - else
+                  = link_to "INVITE", invite_admin_user_path(user)
             td
               = link_to "EDIT", edit_admin_user_path(user)
 
