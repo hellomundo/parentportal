@@ -7,6 +7,12 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def show
+    @required_hours = Rails.application.config.required_hours
+    @total_task_hours = @user.total_hours
+    @percent_done = @total_task_hours / @required_hours * 100
+    @percent_over = (@total_task_hours - @required_hours) / @required_hours * 100
+    #@tasks = Task.where(user_id: current_user).order("created_at DESC").includes(user: :family, :task_type)
+    @tasks = @user.tasks.includes(:task_type).order("created_at DESC")
   end
 
   def new

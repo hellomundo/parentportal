@@ -1,7 +1,44 @@
 .section
   .container
-    h1
-      = @user.full_name
-    h3 family
-    h3
-      = @user.email
+    h1 = @user.full_name
+    h3 #{@user.family.name} family
+    h3 = @user.email
+    h3 = number_to_phone(@user.phone)
+
+.section
+  .container
+    .bar-header This user's contributions this year.
+
+    .bar-stat
+      h3 #{number_with_precision(@total_task_hours, precision: 2, strip_insignificant_zeros: true)} hrs
+
+    .bar-chart
+      - if @percent_done <= 100
+        .bar style="width:#{@percent_done}%"
+      - else
+        .bar-over style="width:#{@percent_over}%"
+
+.section
+  .container
+    table
+      thead
+        tr
+          th Task
+          th Done By
+          th Notes
+          th Submitted on
+          th Hours
+      tbody
+        - @tasks.each do |task|
+          tr
+            td = task.task_type.name
+            td = task.user.first_name
+            td = task.notes
+            td = task.created_at.to_s(:task_date)
+            td.number = task.hours
+
+      tfoot
+        tr
+          td Total
+          td colspan="3"
+          td.number = @total_task_hours

@@ -3,9 +3,8 @@ class TasksController < ApplicationController
   before_action :find_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    # TODO: Move to an admin setting
     @task = current_user.tasks.build
-    @required_hours = 45
+    @required_hours = Rails.application.config.required_hours
     @total_task_hours = current_user.total_family_hours
     @percent_done = @total_task_hours / @required_hours * 100
     @percent_over = (@total_task_hours - @required_hours) / @required_hours * 100
