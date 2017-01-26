@@ -18,7 +18,7 @@ en:
     mailer:
       invitation_instructions:
         subject: "Invitation instructions"
-        hello: "Hello %{email}"
+        hello: "Hello %{name}"
         someone_invited_you: "We'd like to invite you the Orchard Parent Hours Tracker. To finish creating your account, click the link below."
         accept: "Create your account"
         accept_until: "This invitation will be due in %{due_date}."
