@@ -5,8 +5,8 @@
     table
       thead
         tr
-          th Name
-          th Family
+          th = sort_link "first_name", "Name"
+          th = sort_link "families.name", "Family"
           th Email
           th Phone
           th

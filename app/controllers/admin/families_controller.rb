@@ -3,7 +3,7 @@ class Admin::FamiliesController < Admin::BaseController
 
   def index
     #@families = Family.all
-    @families = Family.left_outer_joins(:tasks).select('families.*, sum(tasks.hours) as total_hours').group('families.id')
+    @families = Family.left_outer_joins(:tasks).select('families.*, sum(tasks.hours) as total_hours').group('families.id').order("#{sort_column} #{sort_direction}")
 
   end
 
@@ -51,5 +51,10 @@ class Admin::FamiliesController < Admin::BaseController
   def family_params
     params.require(:family).permit(:name)
   end
+
+  def sortable_columns
+    ["families.name", "total_hours"]
+  end
+
 
 end

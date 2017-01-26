@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :invite]
 
   def index
-    @users = User.includes(:family).all
+    @users = User.includes(:family).all.order("#{sort_column} #{sort_direction}")
   end
 
   def show
@@ -53,6 +53,10 @@ class Admin::UsersController < Admin::BaseController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def sortable_columns
+    ["first_name", "families.name"]
   end
 
   def user_params

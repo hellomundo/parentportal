@@ -5,8 +5,8 @@
     table
       thead
         tr
-          th Family
-          th Hours
+          th = sort_link "families.name", "Name"
+          th = sort_link "total_hours", "Hours"
           th
       tbody
         - @families.each do |family, hrs|
