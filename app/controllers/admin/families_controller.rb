@@ -2,10 +2,13 @@ class Admin::FamiliesController < Admin::BaseController
   before_action :set_family, only: [:show, :edit, :update, :destroy]
 
   def index
-    @families = Family.all
+    #@families = Family.all
+    @families = Family.joins(:tasks).select('families.*, sum(tasks.hours) as total_hours').group(:family)
+
   end
 
   def show
+    @members = User.where(family: @family)
   end
 
   def new

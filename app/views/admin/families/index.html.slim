@@ -6,16 +6,14 @@
       thead
         tr
           th Family
-          th Parents
           th Hours
           th
       tbody
-        - @families.each do |family|
+        - @families.each do |family, hrs|
           tr
             td
               = link_to family.name, admin_family_path(family)
-            td Parent Names
-            td 101.5
+            td = family.total_hours
             td EDIT
 
   .container

@@ -5,9 +5,11 @@
       = @family.name
       '  Family
     h4 Family Members
-    p List parent/guardians here
+    - @members.each do |member|
+      p = link_to "#{member.first_name} #{member.last_name}", admin_user_path(member)
+
     p List students here
 
     = link_to "Edit", edit_admin_family_path(@family)
-    ' 
+    '
     = link_to "Delete", admin_family_path(@family), method: :delete, data: {confirm: 'Are you sure?'}
