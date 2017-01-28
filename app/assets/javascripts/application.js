@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require pikaday
+//= require pikaday.jquery
 //= require_tree .
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */

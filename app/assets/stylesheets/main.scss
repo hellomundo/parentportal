@@ -335,6 +335,11 @@ td {
   @include span(12);
 }
 
+// need to override standard form height
+.pika-button {
+  height: 3.5em;
+}
+
 // simple bar charts
 .bar-header {
   width: 100%;
@@ -398,12 +403,6 @@ td {
 
 }
 
-.task_performed_on {
-  select {
-    width: 32%;
-    display: inline-block;
-  }
-}
 .box-control {
   @extend .clearfix;
   border-top: 1px solid $med-gray;
