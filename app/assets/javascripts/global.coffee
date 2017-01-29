@@ -22,6 +22,8 @@ bindDatepickers = (datePickerInput) ->
       .removeClass('date_picker')
       .end()
     .on('focus', datePickerInput, ->
+      $(this).attr('readonly', 'readonly')
+
       $(this)
         .addClass('pikaday')
         .pikaday(defaultDatePickerArgs)
