@@ -33,5 +33,5 @@ bindDatepickers = (datePickerInput) ->
   if ($pristineDatepickerInputs = $('input.date_picker')).length
     $pristineDatepickerInputs.addClass('pikaday').pikaday(defaultDatePickerArgs)
 
-$(document).ready ->
+$(document).on "turbolinks:load", ->
   bindDatepickers('input.date-picker')

@@ -7,7 +7,6 @@ class TasksController < ApplicationController
     @required_hours = Rails.application.config.required_hours
     @total_task_hours = current_user.total_family_hours
     @percent_done = @total_task_hours / @required_hours * 100
-    @percent_over = (@total_task_hours - @required_hours) / @required_hours * 100
     #@tasks = Task.where(user_id: current_user).order("created_at DESC").includes(user: :family, :task_type)
     @tasks = Task.includes(:user, :task_type).where(family_id: current_user.family_id).order("created_at DESC")
   end
