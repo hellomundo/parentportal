@@ -1,3 +1,5 @@
+require 'csv'
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -30,6 +32,16 @@ class User < ApplicationRecord
       name.concat(last_name)
     end
     name
+  end
+
+  def self.to_csv
+    attributes = %w{first_name last_name phone email}
+    CSV.generate do |csv|
+      csv << attributes
+      all.each do |item|
+        csv << item.attributes.values_at(*attributes)
+      end
+    end
   end
 
 end

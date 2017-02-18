@@ -4,6 +4,12 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     @users = User.includes(:family).all.order("#{sort_column} #{sort_direction}")
+
+    respond_to do |format|
+      format.html
+      format.csv { render text: @users.to_csv }
+    end
+
   end
 
   def show
