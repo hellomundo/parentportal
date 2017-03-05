@@ -2,7 +2,8 @@
   .container
     h1 = @user.full_name
     h3 #{@user.family.name} family
-    h3 = @user.email
+    h3 = mail_to @user.email
+    h3 Last Login: #{@user.last_sign_in_at.to_s(:task_date)}
     h3 = number_to_phone(@user.phone)
 
 .section
