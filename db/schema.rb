@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170126204321) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admin_task_types", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,8 +41,8 @@ ActiveRecord::Schema.define(version: 20170126204321) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["student_id"], name: "index_relationships_on_student_id"
-    t.index ["user_id"], name: "index_relationships_on_user_id"
+    t.index ["student_id"], name: "index_relationships_on_student_id", using: :btree
+    t.index ["user_id"], name: "index_relationships_on_user_id", using: :btree
   end
 
   create_table "students", force: :cascade do |t|
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170126204321) do
     t.integer  "family_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["family_id"], name: "index_students_on_family_id"
+    t.index ["family_id"], name: "index_students_on_family_id", using: :btree
   end
 
   create_table "task_types", force: :cascade do |t|
@@ -68,7 +71,7 @@ ActiveRecord::Schema.define(version: 20170126204321) do
     t.integer  "task_type_id"
     t.integer  "family_id"
     t.date     "performed_on"
-    t.index ["family_id"], name: "index_tasks_on_family_id"
+    t.index ["family_id"], name: "index_tasks_on_family_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,12 +100,12 @@ ActiveRecord::Schema.define(version: 20170126204321) do
     t.string   "invited_by_type"
     t.integer  "invited_by_id"
     t.integer  "invitations_count",      default: 0
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["family_id"], name: "index_users_on_family_id"
-    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-    t.index ["invitations_count"], name: "index_users_on_invitations_count"
-    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["family_id"], name: "index_users_on_family_id", using: :btree
+    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+    t.index ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+    t.index ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end

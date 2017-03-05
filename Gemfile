@@ -35,11 +35,20 @@ gem 'susy', '~> 2.2', '>= 2.2.12'
 gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
 gem 'breakpoint', '~> 2.7'
 
+# for charting
+gem 'momentjs-rails', '~> 2.11', '>= 2.11.1'
+gem 'chart-js-rails', '~> 0.1.2'
+gem 'chartkick', '~> 2.2', '>= 2.2.3'
+gem 'groupdate', '~> 3.2'
+
+gem 'pg'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  # gem 'sqlite3'
+  # Use postgres
 end
 
 group :development do
@@ -53,7 +62,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
 #  gem 'rails_12factor'
 end
 
