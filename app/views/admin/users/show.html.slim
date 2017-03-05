@@ -3,7 +3,10 @@
     h1 = @user.full_name
     h3 #{@user.family.name} family
     h3 = mail_to @user.email
-    h3 Last Login: #{@user.last_sign_in_at.to_s(:task_date)}
+    - if @user.invitation_accepted?
+      h3 Last Login: #{@user.last_sign_in_at.to_s(:task_date)}
+    - else
+      h3 Never logged in.
     h3 = number_to_phone(@user.phone)
 
 .section
