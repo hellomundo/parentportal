@@ -1,0 +1,16 @@
+# config/app.yml for rails-settings-cached
+defaults: &defaults
+  task_hours_quota: 45
+  lunch_unit_rate: 5
+  aftercare_unit_rate: 2
+  aftercare_unit_minutes: 15
+  parent_hour_value: 15
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

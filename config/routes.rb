@@ -20,6 +20,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :settings
+
   end
 
   resources :tasks
