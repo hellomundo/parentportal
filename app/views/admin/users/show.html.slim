@@ -13,14 +13,7 @@
   .container
     .bar-header This user's contributions this year.
 
-    .bar-stat
-      h3 #{number_with_precision(@total_task_hours, precision: 2, strip_insignificant_zeros: true)} hrs
-
-    .bar-chart
-      - if @percent_done <= 100
-        .bar style="width:#{@percent_done}%"
-      - else
-        .bar-over style="width:#{@percent_over}%"
+    = render partial: 'task_progress', locals: {total: @total_task_hours, required: @required_hours, complete: @percent_done}
 
 .section
   .container

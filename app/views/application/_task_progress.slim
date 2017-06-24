@@ -1,0 +1,12 @@
+.bar-stat
+  h3 #{number_with_precision(total, precision: 2, strip_insignificant_zeros: true)} / #{required} hrs
+
+.bar-percent
+  h3
+    = "#{complete.round}%"
+
+.bar-chart
+  - if complete <= 100
+    .bar style="width:#{complete}%"
+  - else
+    .bar style="width:100%"
