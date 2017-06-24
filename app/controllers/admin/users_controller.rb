@@ -19,6 +19,8 @@ class Admin::UsersController < Admin::BaseController
     @percent_over = (@total_task_hours - @required_hours) / @required_hours * 100
     #@tasks = Task.where(user_id: current_user).order("created_at DESC").includes(user: :family, :task_type)
     @tasks = @user.tasks.includes(:task_type).order("created_at DESC")
+    @task = @user.tasks.build
+
   end
 
   def new
