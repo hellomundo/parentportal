@@ -34,6 +34,14 @@ class User < ApplicationRecord
     name
   end
 
+  def activate!
+    self.update(:is_active, true)
+  end
+
+  def deactivate!
+    self.update(:is_active, false)
+  end
+
   def self.to_csv
     attributes = %w{first_name last_name phone email}
     CSV.generate do |csv|
