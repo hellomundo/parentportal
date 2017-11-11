@@ -5,10 +5,12 @@ class TasksController < ApplicationController
   def index
     @task = current_user.tasks.build
     @required_hours = Rails.application.config.required_hours
-    @total_task_hours = current_user.total_family_hours
+    first_day_of_school = Period.current_period_start_date
+    @total_task_hours = Task.total_hours_for_family_since(current_user.family_id, first_day_of_school)
     @percent_done = @total_task_hours / @required_hours * 100
     #@tasks = Task.where(user_id: current_user).order("created_at DESC").includes(user: :family, :task_type)
-    @tasks = Task.includes(:user, :task_type).where(family_id: current_user.family_id).order("created_at DESC")
+    #@tasks = Task.performed_after(first_day_of_school).includes(:user, :task_type).where(family_id: current_user.family_id).order("created_at DESC")
+    @tasks = Task.tasks_for_family_since(current_user.family_id, first_day_of_school)
   end
 
   def show

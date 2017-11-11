@@ -12,11 +12,19 @@ Rails.application.routes.draw do
     root to: 'dashboard#index', as: "/"
 
     resources :task_types
-    resources :families
+    resources :families do
+      member do
+        patch 'activate'
+        patch 'deactivate'
+      end
+    end
+
     resources :periods
     resources :users do
       member do
         get 'invite'
+        patch 'activate'
+        patch 'deactivate'
       end
     end
 

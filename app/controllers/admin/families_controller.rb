@@ -3,7 +3,8 @@ class Admin::FamiliesController < Admin::BaseController
 
   def index
     #@families = Family.all
-    @families = Family.left_outer_joins(:tasks).select('families.*, sum(tasks.hours) as total_hours').group('families.id').order("#{sort_column} #{sort_direction}")
+    start_date = Period.current_period_start_date
+    @families = Family.left_outer_joins(:tasks).where("tasks.performed_on > ?", start_date).select('families.*, sum(tasks.hours) as total_hours').group('families.id').order("#{sort_column} #{sort_direction}")
   end
 
   def show

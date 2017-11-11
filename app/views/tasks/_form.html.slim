@@ -2,7 +2,6 @@
   .form-left-wide
     = label_tag "What did you do?"
     = f.collection_select :task_type_id, TaskType.all, :id, :name, {prompt: "Select a task"}
-    // = f.input :task_type, collection: TaskType.all, label_method: :name, value_method: :id, label: "What did you do?", include_blank: false
   .form-right-narrow
     = f.input :hours
   .form-full

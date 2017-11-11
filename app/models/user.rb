@@ -35,11 +35,11 @@ class User < ApplicationRecord
   end
 
   def activate!
-    self.update(:is_active, true)
+    self.update(is_active: true)
   end
 
   def deactivate!
-    self.update(:is_active, false)
+    self.update(is_active: false)
   end
 
   def self.to_csv

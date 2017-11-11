@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::BaseController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :invite]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :invite, :activate, :deactivate]
 
   def index
     @users = User.includes(:family).all.order("#{sort_column} #{sort_direction}")
@@ -62,6 +62,15 @@ class Admin::UsersController < Admin::BaseController
     redirect_to admin_users_path
   end
 
+  def activate
+    @user.activate!
+    redirect_to admin_users_path
+  end
+
+  def deactivate
+    @user.deactivate!
+    redirect_to admin_users_path
+  end
 
   private
 
@@ -74,6 +83,6 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :phone, :family_id, :is_admin)
+    params.require(:user).permit(:first_name, :last_name, :email, :phone, :family_id, :is_admin, :is_active)
   end
 end
