@@ -130,14 +130,20 @@ h1, h2, h3, h4, h5 {
 .action-button {
   display: inline-block;
   text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
   background-color: $med-blue;
   color: white;
-  margin: 3em 0;
-  padding: 1em 2em;
+  margin: 0;
+  padding: 0.5em 2em;
   transition-duration: 0.2s;
 
   &:hover {
     background-color: $dark-blue;
+  }
+
+  &:visited, &:active {
+    color: white;
   }
 }
 
@@ -320,6 +326,12 @@ td {
   @extend .clearfix;
   border-top: 1px solid $med-gray;
   padding-top: 1em;
+}
+
+.control-bar {
+  padding-left: .5em;
+  @extend .clearfix;
+  text-align: right;
 }
 
 // forms

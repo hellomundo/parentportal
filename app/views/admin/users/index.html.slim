@@ -1,6 +1,11 @@
 .section
   .container
     h1 Users
+ 
+  .container
+    .control-bar
+      = link_to "New User", new_admin_user_path, class: 'action-button'
+
   .container
     table
       thead
@@ -39,6 +44,3 @@
             td
               = link_to "EDIT", edit_admin_user_path(user)
 
-  .container
-    .table-control
-      = link_to "New User", new_admin_user_path

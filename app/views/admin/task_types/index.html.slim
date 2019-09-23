@@ -1,6 +1,12 @@
 .section
   .container
     h1 Task Types
+
+  .container
+    .control-bar
+      = link_to "New Task Type", new_admin_task_type_path, class: 'action-button'
+    p 
+
   .container
     - @task_types.each do |task_type|
       .task-box
@@ -13,6 +19,3 @@
           '  |
           = link_to "DELETE", admin_task_type_path(task_type), method: :delete, data: {confirm: 'Are you sure?'}
 
-  .container
-    .box-control
-      = link_to "New Task Type", new_admin_task_type_path

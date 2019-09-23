@@ -2,6 +2,9 @@
   .container
     h1 Orchard Families
   .container
+    .control-bar
+      = link_to "Add New Family", new_admin_family_path, class: 'action-button'
+  .container
     table
       thead
         tr
@@ -22,6 +25,3 @@
                 = link_to "ACTIVATE", activate_admin_family_path(family)
             td EDIT
 
-  .container
-    .table-control
-      = link_to "New Family", new_admin_family_path

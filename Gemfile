@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.3.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.0.7.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.6'
 # Use SCSS for stylesheets
@@ -25,11 +25,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'rb-readline', '~> 0.5.5'
 
 # Slim for html templating
 gem 'slim', '~> 3.0', '>= 3.0.7'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7.1'
 gem 'devise_invitable', '~> 1.7.0'
 gem 'susy', '~> 2.2', '>= 2.2.12'
 gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
@@ -41,7 +42,7 @@ gem 'rails-settings-cached', '~> 0.6.5'
 # for charting
 gem 'momentjs-rails', '~> 2.11', '>= 2.11.1'
 gem 'chart-js-rails', '~> 0.1.2'
-gem 'chartkick', '~> 2.2', '>= 2.2.3'
+gem 'chartkick', '~> 3.2.0'
 gem 'groupdate', '~> 3.2'
 gem 'hightop', '~> 0.1.4'
 
