@@ -9,7 +9,7 @@
       thead
         tr
           th = sort_link "families.name", "Name"
-          th = sort_link "total_hours", "Hours"
+          / th = sort_link "total_hours", "Hours"
           th
           th
       tbody
@@ -17,7 +17,7 @@
           tr
             td
               = link_to family.name, admin_family_path(family)
-            td = family.total_hours
+            / td = family.total_hours
             td
               - if family.is_active
                 = link_to "DEACTIVATE", deactivate_admin_family_path(family)
