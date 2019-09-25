@@ -2,7 +2,7 @@ class Admin::FamiliesController < Admin::BaseController
   before_action :set_family, only: [:show, :edit, :update, :destroy]
 
   def index
-    @families = Family.all
+    @families = Family.active
     #start_date = Period.current_period_start_date
     # @families = Family.joins(:tasks).where("tasks.performed_on > ?", start_date).select('families.*, sum(tasks.hours) as total_hours').group('families.id').order("#{sort_column} #{sort_direction}")
     # @families = Family.select('families.*, sum(tasks.hours) as total_hours').left_outer_joins(:tasks).where("tasks.performed_on > ?", start_date).group('families.id').order("#{sort_column} #{sort_direction}")
@@ -35,6 +35,22 @@ class Admin::FamiliesController < Admin::BaseController
     else
       render 'edit'
     end
+  end
+
+  def activate
+    @family = Family.find(:id)
+    @family.is_active = true;
+
+    flash[:notice] = "The #{@family.name} family has been activated."
+    redirect_to admin_families_path
+  end
+
+  def deactivate
+    @family = Family.find(:id)
+    @family.is_active = false;
+
+    flash[:notice] = "The #{@family.name} family has been deactivated."
+    redirect_to admin_families_path
   end
 
   def destroy

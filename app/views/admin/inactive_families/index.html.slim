@@ -3,13 +3,12 @@
     h1 Orchard Families
   .container
     .control-bar
-      = link_to "Inactive Families", admin_inactive_families_path, class: 'text-button'
-      = link_to "Add New Family", new_admin_family_path, class: 'action-button'
+      = link_to "See Active Families", admin_families_path, class: 'text-button'
   .container
     table
       thead
         tr
-          th = sort_link "families.name", "Name"
+          th Name
           / th = sort_link "total_hours", "Hours"
           th
           th
@@ -21,9 +20,10 @@
             / td = family.total_hours
             td
               - if family.is_active
-                = link_to "DEACTIVATE", admin_inactive_families_path(family.id, id: family.id), method: :post
+                = button_to "DEACTIVATE", admin_inactive_families_path, {method: :post, params: {id: family.id}}
                 /= link_to "DEACTIVATE", deactivate_admin_family_path(family)
               - else
-                = link_to "ACTIVATE", activate_admin_family_path(family)
+                /= link_to "ACTIVATE", activate_admin_family_path(family)
+                = link_to "REACTIVATE", admin_inactive_family_path(family.id, id: family.id), method: "delete"
             td EDIT
 

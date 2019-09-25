@@ -6,7 +6,10 @@
       '  Family
     h4 Family Members
     - @members.each do |member|
-      p = link_to "#{member.first_name} #{member.last_name}", admin_user_path(member)
+      p 
+        = link_to "#{member.first_name} #{member.last_name}", admin_user_path(member)
+        - if !member.is_active
+          |  (inactive)
 
     p List students here
 

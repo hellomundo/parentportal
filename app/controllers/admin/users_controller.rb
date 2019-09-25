@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :invite, :activate, :deactivate]
 
   def index
-    @users = User.includes(:family).all.order("#{sort_column} #{sort_direction}")
+    @users = User.includes(:family).active.order("#{sort_column} #{sort_direction}")
 
     respond_to do |format|
       format.html

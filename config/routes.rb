@@ -18,6 +18,8 @@ Rails.application.routes.draw do
         patch 'deactivate'
       end
     end
+    
+    resources :inactive_families, only: [:index, :create, :destroy]
 
     resources :periods
     resources :users do

@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :students, through: :relationsips
   has_one :invitation
 
+  scope :active, -> { where(is_active: true) }
+  scope :inactive, -> { where(is_active: false) }
+
   def password_required?
      new_record? ? false : super
   end
