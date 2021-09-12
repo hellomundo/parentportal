@@ -27,7 +27,7 @@
           th Task
           th Done By
           th Notes
-          th Submitted on
+          th Performed on
           th Hours
       tbody
         - @tasks.each do |task|
@@ -35,7 +35,7 @@
             td = task.task_type.name
             td = task.user.first_name
             td = task.notes
-            td = task.created_at.to_s(:task_date)
+            td = task.performed_on.to_s(:task_date)
             td.number = task.hours
 
       tfoot
