@@ -29,7 +29,7 @@ gem 'rb-readline', '~> 0.5.5'
 
 # Slim for html templating
 gem 'slim', '~> 3.0', '>= 3.0.7'
-gem 'simple_form', '~> 3.2', '>= 3.2.1'
+gem 'simple_form', '~> 5.0'
 gem 'devise', '~> 4.7.1'
 gem 'devise_invitable', '~> 1.7.0'
 gem 'susy', '~> 2.2', '>= 2.2.12'
