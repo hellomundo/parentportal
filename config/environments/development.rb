@@ -1,6 +1,5 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_controller.default_url_options = {:host => "localhost:3000"}
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -27,8 +26,27 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # For devise
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # for dev
+  config.action_mailer.delivery_method = :sendmail
+  # Defaults to:
+  # config.action_mailer.sendmail_settings = {
+  #   location: '/usr/sbin/sendmail',
+  #   arguments: '-i'
+  # }
+  #config.action_mailer.smtp_settings = {
+  #:address => "localhost",
+  #:port => 25,
+  #:domain => "oqqo.co",
+  #}
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = {from: 'no-reply@oqqo.co'}
+
   # Don't care if the mailer can't send.
-  #config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -52,25 +70,4 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-
-  # For devise
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
-  # for dev
-  config.action_mailer.delivery_method = :sendmail
-  # Defaults to:
-  # config.action_mailer.sendmail_settings = {
-  #   location: '/usr/sbin/sendmail',
-  #   arguments: '-i'
-  # }
-  #config.action_mailer.smtp_settings = {
-  #:address => "localhost",
-  #:port => 25,
-  #:domain => "oqqo.co",
-  #}
-
-
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'no-reply@oqqo.co'}
 end

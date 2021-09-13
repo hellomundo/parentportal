@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-ruby "2.3.1"
+ruby "2.7.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.7.1'
+gem 'rails', '~> 5.0.7.2'
 # Use Puma as the app server
-gem 'puma', '~> 3.6'
+gem 'puma', '~> 5.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.2.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -46,11 +46,11 @@ gem 'chartkick', '~> 3.2.0'
 gem 'groupdate', '~> 3.2'
 gem 'hightop', '~> 0.1.4'
 
-gem 'pg'
+gem 'pg', '~> 0.19.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  # gem 'byebug', platform: :mri
   # Use sqlite3 as the database for Active Record
   # gem 'sqlite3'
   # Use postgres

@@ -15,8 +15,8 @@
 //= require pikaday
 //= require pikaday.jquery
 //= require moment 
-//= require Chart
 //= require chartkick
+//= require Chart.bundle
 //= require turbolinks
 //= require_tree .
 
