@@ -47,7 +47,7 @@ gem 'rails-settings-cached', '~> 0.6.5'
 # for charting
 gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
 gem 'chart-js-rails', '~> 0.1.7'
-gem 'chartkick', '~> 3.2.0'
+gem 'chartkick', '~> 4.1.0'
 gem 'groupdate', '~> 3.2'
 gem 'hightop', '~> 0.1.4'
 
