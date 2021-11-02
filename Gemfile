@@ -5,25 +5,27 @@ ruby "2.7.3"
 # 5.1.7
 # 5.2.6
 # 6.1.4
-gem 'rails', '~> 5.1.7'
+gem 'rails', '~> 5.2.6'
 # Use Puma as the app server
 gem 'puma', '~> 5.4'
+# Use Bootsnap for faster startup
+gem 'bootsnap', '~> 1.9', '>= 1.9.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '= 5.0.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 4.2.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2.2'
+gem 'coffee-rails', '~> 5.0.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'font-awesome-rails', '~> 4.7.0.7'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '~> 4.2.2'
+gem 'jquery-rails', '~> 4.4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -31,20 +33,20 @@ gem 'jbuilder', '~> 2.5'
 gem 'rb-readline', '~> 0.5.5'
 
 # Slim for html templating
-gem 'slim', '~> 3.0', '>= 3.0.7'
-gem 'simple_form', '~> 3.2', '>= 3.2.1'
-gem 'devise', '~> 4.7.1'
-gem 'devise_invitable', '~> 1.7.0'
+gem 'slim', '~> 4.1.0', '>= 3.0.9'
+gem 'simple_form', '~> 5.1', '>= 5.1.0'
+gem 'devise', '~> 4.8.0'
+gem 'devise_invitable', '~> 2.0.5'
 gem 'susy', '~> 2.2', '>= 2.2.12'
-gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
+gem 'normalize-rails', '~> 8'
 gem 'breakpoint', '~> 2.7'
 
 # Settings gem
 gem 'rails-settings-cached', '~> 0.6.5'
 
 # for charting
-gem 'momentjs-rails', '~> 2.11', '>= 2.11.1'
-gem 'chart-js-rails', '~> 0.1.2'
+gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
+gem 'chart-js-rails', '~> 0.1.7'
 gem 'chartkick', '~> 3.2.0'
 gem 'groupdate', '~> 3.2'
 gem 'hightop', '~> 0.1.4'
