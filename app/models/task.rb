@@ -19,6 +19,10 @@ class Task < ApplicationRecord
     performed_after(start_date).includes(:user, :task_type).where(family_id: family_id).order("created_at DESC")
   end
 
+  def self.total_hours_for_all_families_since(start_date)
+    performed_after(start_date).joins(:family).group("families.name").select("families.name, sum(tasks.hours) as total_task_hours")
+  end
+
   def self.total_hours_since(start_date)
     performed_after(start_date).sum(:hours)
   end
