@@ -9,14 +9,14 @@ gem 'rails', '~> 5.1.7'
 # Use Puma as the app server
 gem 'puma', '~> 5.4'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '= 5.0.7'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '~> 4.2.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 4.2.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
+gem 'font-awesome-rails', '~> 4.7.0.7'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 4.2.2'
