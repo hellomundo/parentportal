@@ -2,7 +2,11 @@ class Admin::FamiliesController < Admin::BaseController
   before_action :set_family, only: [:show, :edit, :update, :destroy]
 
   def index
+    first_day_of_school = Period.current_period_start_date
+
     @families = Family.active
+    @family_hours = Task.total_hours_for_all_families_since(first_day_of_school)
+
     #start_date = Period.current_period_start_date
     # @families = Family.joins(:tasks).where("tasks.performed_on > ?", start_date).select('families.*, sum(tasks.hours) as total_hours').group('families.id').order("#{sort_column} #{sort_direction}")
     # @families = Family.select('families.*, sum(tasks.hours) as total_hours').left_outer_joins(:tasks).where("tasks.performed_on > ?", start_date).group('families.id').order("#{sort_column} #{sort_direction}")

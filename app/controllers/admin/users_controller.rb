@@ -14,9 +14,9 @@ class Admin::UsersController < Admin::BaseController
 
   def show
     @required_hours = Rails.application.config.required_hours
-    @total_task_hours = @user.total_hours
     first_day_of_school = Period.current_period_start_date
-
+    @total_task_hours = Task.total_hours_for_family_since(@user.family_id, first_day_of_school)
+    
     @percent_done = @total_task_hours / @required_hours * 100
     @percent_over = (@total_task_hours - @required_hours) / @required_hours * 100
     #@tasks = Task.where(user_id: current_user).order("created_at DESC").includes(user: :family, :task_type)

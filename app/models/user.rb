@@ -23,8 +23,16 @@ class User < ApplicationRecord
     self.tasks.sum(:hours)
   end
 
+  def total_hours_since(time)
+    self.tasks.where("performed_on >= ?", time).sum(:hours)
+  end
+
   def total_family_hours
     Task.where(family_id: self.family_id).sum(:hours)
+  end
+
+  def total_family_hours_since(time)
+    Task.where(family_id: self.family_id).where("performed_on >= ?", time).sum(:hours)
   end
 
   def full_name

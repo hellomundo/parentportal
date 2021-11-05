@@ -9,19 +9,19 @@
     table
       thead
         tr
-          th = sort_link "families.name", "Name"
-          / th = sort_link "total_hours", "Hours"
+          th Name
+          th Hours
           th
           th
       tbody
-        - @families.each do |family, hrs|
+        - @family_hours.each do |(name, id), hrs| 
           tr
             td
-              = link_to family.name, admin_family_path(family)
-            / td = family.total_hours
+              = link_to name, admin_family_path(id)
+            td = hrs
             td
-              - if family.is_active
-                = link_to "DEACTIVATE", admin_inactive_families_path(family.id, id: family.id), method: :post
+              - if true #family.is_active
+                = link_to "DEACTIVATE", admin_inactive_families_path(id, id: id), method: :post
                 /= link_to "DEACTIVATE", deactivate_admin_family_path(family)
               - else
                 = link_to "ACTIVATE", activate_admin_family_path(family)
