@@ -7,7 +7,7 @@ ruby "2.7.3"
 # 6.1.4
 gem 'rails', '~> 5.2.6'
 # Use Puma as the app server
-gem 'puma', '~> 5.4'
+gem 'puma', '~> 5.6'
 # Use Bootsnap for faster startup
 gem 'bootsnap', '~> 1.9', '>= 1.9.1'
 # Use SCSS for stylesheets
