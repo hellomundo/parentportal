@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.11'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rb-readline', '~> 0.5.5'
+# env variables
+gem 'dotenv', '~> 2.8', '>= 2.8.1'
 
 # Slim for html templating
 gem 'slim', '~> 4.1.0', '>= 3.0.9'
@@ -42,7 +44,7 @@ gem 'normalize-rails', '~> 8'
 gem 'breakpoint', '~> 2.7'
 
 # Settings gem
-gem 'rails-settings-cached', '~> 2.8.1'
+# gem 'rails-settings-cached', '~> 2.8.1'
 
 # for charting
 gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
