@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
-ruby "2.7.3"
+ruby "3.0.6"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # 5.1.7
 # 5.2.6
 # 6.1.4
-gem 'rails', '~> 5.2.6'
+gem 'rails', '~> 6.1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.4'
 # Use Bootsnap for faster startup
-gem 'bootsnap', '~> 1.9', '>= 1.9.1'
+gem 'bootsnap', '~> 1.16'
 # Use SCSS for stylesheets
-gem 'sass-rails', '= 5.0.7'
+gem 'sass-rails', '= 6.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 4.2.0'
 # Use CoffeeScript for .coffee assets and views
@@ -35,14 +35,14 @@ gem 'rb-readline', '~> 0.5.5'
 # Slim for html templating
 gem 'slim', '~> 4.1.0', '>= 3.0.9'
 gem 'simple_form', '~> 5.1', '>= 5.1.0'
-gem 'devise', '~> 4.8.0'
-gem 'devise_invitable', '~> 2.0.5'
+gem 'devise', '~> 4.8.1'
+gem 'devise_invitable', '~> 2.0.6'
 gem 'susy', '~> 2.2', '>= 2.2.12'
 gem 'normalize-rails', '~> 8'
 gem 'breakpoint', '~> 2.7'
 
 # Settings gem
-gem 'rails-settings-cached', '~> 0.6.5'
+gem 'rails-settings-cached', '~> 2.8.1'
 
 # for charting
 gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
@@ -51,7 +51,7 @@ gem 'chartkick', '~> 4.1.0'
 gem 'groupdate', '~> 3.2'
 gem 'hightop', '~> 0.1.4'
 
-gem 'pg', '~> 0.19.0'
+gem 'pg', '~> 1.5.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
