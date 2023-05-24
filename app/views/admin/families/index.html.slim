@@ -1,6 +1,6 @@
 .section
   .container
-    h1 Orchard Families
+    h1 Orchard Families with Hours
   .container
     .control-bar
       = link_to "Inactive Families", admin_inactive_families_path, class: 'text-button'
@@ -22,6 +22,28 @@
             td
               - if true #family.is_active
                 = link_to "DEACTIVATE", admin_inactive_families_path(id, id: id), method: :post
+                /= link_to "DEACTIVATE", deactivate_admin_family_path(family)
+              - else
+                = link_to "ACTIVATE", activate_admin_family_path(family)
+            td EDIT
+
+  .container
+    h2 All Active Families
+  .container
+    table
+      thead
+        tr
+          th Name
+          th
+          th
+      tbody
+        - @families.each do |family| 
+          tr
+            td
+              = link_to family.name, admin_family_path(family.id)
+            td
+              - if true #family.is_active
+                = link_to "DEACTIVATE", admin_inactive_families_path(family.id, id: family.id), method: :post
                 /= link_to "DEACTIVATE", deactivate_admin_family_path(family)
               - else
                 = link_to "ACTIVATE", activate_admin_family_path(family)

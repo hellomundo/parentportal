@@ -4,6 +4,7 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     @users = User.includes(:family).active.order("#{sort_column} #{sort_direction}")
+    @inactive_users = User.includes(:family).inactive.order("#{sort_column} #{sort_direction}")
 
     respond_to do |format|
       format.html
