@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  #protect_from_forgery with: :exception
   helper_method :sort_column, :sort_direction
 
   before_action :authenticate_user!
